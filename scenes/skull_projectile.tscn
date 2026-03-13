@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://baobqky5nk12w"]
+
+[ext_resource type="Script" uid="uid://b32rgxhecnu5p" path="res://scenes/skull_projectile.gd" id="1_bb6y3"]
+[ext_resource type="Texture2D" uid="uid://cyi3fjbhp5wvj" path="res://assets/Spooky Shmup/enemy ships/Enemy Projectiles.png" id="2_7i2sg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n1dwg"]
+radius = 6.0827627
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8hbxx"]
+atlas = ExtResource("2_7i2sg")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_spnpp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8hbxx")
+}],
+"loop": true,
+"name": &"skull_projectile",
+"speed": 5.0
+}]
+
+[node name="SkullProjectile" type="Area2D" unique_id=1185383717]
+collision_layer = 2
+script = ExtResource("1_bb6y3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2119572679]
+shape = SubResource("CircleShape2D_n1dwg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1954280150]
+sprite_frames = SubResource("SpriteFrames_spnpp")
+animation = &"skull_projectile"
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://b4bvnwg57abh6"]
+
+[ext_resource type="Script" uid="uid://iuigoyjeta35" path="res://scenes/skull_head.gd" id="1_6qajt"]
+[ext_resource type="Texture2D" uid="uid://dpu8w4uk8bjbb" path="res://assets/Spooky Shmup/enemy ships/Skull head.png" id="1_gf50g"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6qajt"]
+radius = 32.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ef723"]
+atlas = ExtResource("1_gf50g")
+region = Rect2(0, 0, 56, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0lllo"]
+atlas = ExtResource("1_gf50g")
+region = Rect2(56, 0, 56, 70)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a8v5c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ef723")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0lllo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="SkullHead" type="Area2D" unique_id=1049355765]
+script = ExtResource("1_6qajt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1660165503]
+shape = SubResource("CircleShape2D_6qajt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=287096004]
+sprite_frames = SubResource("SpriteFrames_a8v5c")
+
+[node name="shootTimer" type="Timer" parent="." unique_id=1270122118]
+wait_time = 2.0
+autostart = true
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="timeout" from="shootTimer" to="." method="_on_shoot_timer_timeout"]

@@ -3,36 +3,30 @@
 [ext_resource type="Texture2D" uid="uid://bvvdbf0p1uesp" path="res://assets/Spooky Shmup/Player projectiles.png" id="1_c8fcr"]
 [ext_resource type="Script" uid="uid://bf05vh4tp6s64" path="res://scenes/projectile.gd" id="1_q3m7n"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_nhxoo"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_c8fcr"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5ieuq"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_q3m7n"]
 atlas = ExtResource("1_c8fcr")
 region = Rect2(0, 32, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pa2l1"]
-atlas = ExtResource("1_c8fcr")
-region = Rect2(32, 32, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_bphau"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_softn"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_5ieuq")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pa2l1")
+"texture": SubResource("AtlasTexture_q3m7n")
 }],
 "loop": true,
 "name": &"default",
 "speed": 5.0
 }]
 
-[node name="Bat" type="Area2D" unique_id=216060533 groups=["Projectile"]]
-scale = Vector2(3, 3)
+[node name="Bat" type="Area2D" unique_id=344084643]
 script = ExtResource("1_q3m7n")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1000494381]
-shape = SubResource("CircleShape2D_nhxoo")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=951345428]
+shape = SubResource("CircleShape2D_c8fcr")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=365362854]
-sprite_frames = SubResource("SpriteFrames_bphau")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=214267209]
+sprite_frames = SubResource("SpriteFrames_softn")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

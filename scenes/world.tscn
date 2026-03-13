@@ -1,11 +1,12 @@
 [gd_scene format=3 uid="uid://dl2vdwn68qvxq"]
 
+[ext_resource type="Script" uid="uid://boug4iifoey5v" path="res://scenes/world.gd" id="1_k0juu"]
 [ext_resource type="Texture2D" uid="uid://xlypxcskf473" path="res://assets/Spooky Shmup/Skybox Castle outside.png" id="1_nnsk1"]
 [ext_resource type="Script" uid="uid://d5b2ddurrb3w" path="res://scenes/background.gd" id="1_rwgxs"]
 [ext_resource type="PackedScene" uid="uid://c3yb2eql5pwpp" path="res://scenes/player.tscn" id="3_4wyf3"]
-[ext_resource type="PackedScene" uid="uid://nixk4qt44hyo" path="res://scenes/witch_enemy.tscn" id="4_k0juu"]
 
 [node name="world" type="Node2D" unique_id=1786074953]
+script = ExtResource("1_k0juu")
 
 [node name="background" type="Node2D" parent="." unique_id=1605741829]
 script = ExtResource("1_rwgxs")
@@ -20,32 +21,8 @@ stretch_mode = 1
 [node name="player" parent="." unique_id=2023646667 instance=ExtResource("3_4wyf3")]
 position = Vector2(124, 349)
 
-[node name="witch_enemy" parent="." unique_id=864088198 instance=ExtResource("4_k0juu")]
-position = Vector2(702, 435)
+[node name="Timer" type="Timer" parent="." unique_id=2042138992]
+wait_time = 2.0
+autostart = true
 
-[node name="witch_enemy2" parent="." unique_id=1301660947 instance=ExtResource("4_k0juu")]
-position = Vector2(802, 432)
-
-[node name="witch_enemy3" parent="." unique_id=890957383 instance=ExtResource("4_k0juu")]
-position = Vector2(898, 430)
-
-[node name="witch_enemy4" parent="." unique_id=1531823215 instance=ExtResource("4_k0juu")]
-position = Vector2(995, 428)
-
-[node name="witch_enemy5" parent="." unique_id=1690959797 instance=ExtResource("4_k0juu")]
-position = Vector2(1091, 424)
-
-[node name="witch_enemy6" parent="." unique_id=1091294934 instance=ExtResource("4_k0juu")]
-position = Vector2(690, 75)
-
-[node name="witch_enemy7" parent="." unique_id=1655208695 instance=ExtResource("4_k0juu")]
-position = Vector2(787.00006, 75)
-
-[node name="witch_enemy8" parent="." unique_id=736137326 instance=ExtResource("4_k0juu")]
-position = Vector2(887.00006, 77)
-
-[node name="witch_enemy9" parent="." unique_id=1726083389 instance=ExtResource("4_k0juu")]
-position = Vector2(985, 73)
-
-[node name="witch_enemy10" parent="." unique_id=130070039 instance=ExtResource("4_k0juu")]
-position = Vector2(1082, 74)
+[connection signal="timeout" from="Timer" to="." method="_on_spawn_timer_timeout"]

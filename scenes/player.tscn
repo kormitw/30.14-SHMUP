@@ -5,6 +5,11 @@
 [ext_resource type="Texture2D" uid="uid://cmv435rlvjn4u" path="res://assets/Spooky Shmup/hub elements.png" id="3_qhqgy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g2els"]
+radius = 16.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tuyoq"]
+atlas = ExtResource("1_3vyb7")
+region = Rect2(64, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qhqgy"]
 atlas = ExtResource("1_3vyb7")
@@ -22,6 +27,14 @@ region = Rect2(64, 32, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_tuyoq")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_qhqgy")
 }, {
 "duration": 1.0,
@@ -30,8 +43,8 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_qlg0r")
 }],
-"loop": true,
-"name": &"default",
+"loop": false,
+"name": &"shoot",
 "speed": 12.0
 }]
 
@@ -42,6 +55,7 @@ bg_color = Color(0.6172746, 0, 0.14698002, 1)
 bg_color = Color(1.4439225e-05, 0.61995673, 0.12553528, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qhqgy"]
+radius = 16.0
 
 [node name="player" type="CharacterBody2D" unique_id=2023646667]
 scale = Vector2(3, 3)
@@ -53,9 +67,10 @@ shape = SubResource("CircleShape2D_g2els")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=240867273]
 texture_filter = 1
+position = Vector2(3, -0.6666667)
 sprite_frames = SubResource("SpriteFrames_tuyoq")
-autoplay = "default"
-frame_progress = 0.20989226
+animation = &"idle"
+autoplay = "shoot"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=531449119]
 
@@ -75,16 +90,9 @@ theme_override_styles/background = SubResource("StyleBoxFlat_dqkch")
 theme_override_styles/fill = SubResource("StyleBoxFlat_qlg0r")
 show_percentage = false
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1406083771 groups=["player"]]
+[node name="Area2D" type="Area2D" parent="." unique_id=755811316]
+collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=446926989]
-scale = Vector2(1.5, 1.5)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=168198288]
 shape = SubResource("CircleShape2D_qhqgy")
-debug_color = Color(0.98557466, 0, 0.33704796, 0.41960785)
-
-[node name="shootTimer" type="Timer" parent="." unique_id=328592984]
-wait_time = 0.25
-autostart = true
-
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
-[connection signal="timeout" from="shootTimer" to="." method="_on_shoot_timer_timeout"]
+debug_color = Color(0.83501667, 0.31117946, 0.602557, 0.41960785)
