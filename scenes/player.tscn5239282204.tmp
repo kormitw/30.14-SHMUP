@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://c3yb2eql5pwpp"]
+
+[ext_resource type="Texture2D" uid="uid://bb0fxwpy2o7lu" path="res://assets/Spooky Shmup/Horror game player animations.png" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://canyy45ofh4jv" path="res://scenes/player.gd" id="1_g2els"]
+[ext_resource type="Texture2D" uid="uid://cmv435rlvjn4u" path="res://assets/Spooky Shmup/hub elements.png" id="3_qhqgy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g2els"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qhqgy"]
+atlas = ExtResource("1_3vyb7")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqkch"]
+atlas = ExtResource("1_3vyb7")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qlg0r"]
+atlas = ExtResource("1_3vyb7")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tuyoq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qhqgy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dqkch")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qlg0r")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dqkch"]
+bg_color = Color(0.6172746, 0, 0.14698002, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qlg0r"]
+bg_color = Color(1.4439225e-05, 0.61995673, 0.12553528, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qhqgy"]
+
+[node name="player" type="CharacterBody2D" unique_id=2023646667]
+scale = Vector2(3, 3)
+script = ExtResource("1_g2els")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1066413862]
+scale = Vector2(1.5, 1.5)
+shape = SubResource("CircleShape2D_g2els")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=240867273]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_tuyoq")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=531449119]
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer" unique_id=862959060]
+position = Vector2(576, 20)
+scale = Vector2(4.5, 1.5)
+texture = ExtResource("3_qhqgy")
+region_enabled = true
+region_rect = Rect2(72, 0, 72, 26)
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer" unique_id=2129988892]
+offset_left = 508.0
+offset_top = 6.0
+offset_right = 644.0
+offset_bottom = 31.0
+theme_override_styles/background = SubResource("StyleBoxFlat_dqkch")
+theme_override_styles/fill = SubResource("StyleBoxFlat_qlg0r")
+show_percentage = false
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1406083771]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=446926989]
+scale = Vector2(1.5, 1.5)
+shape = SubResource("CircleShape2D_qhqgy")
+debug_color = Color(0.98557466, 0, 0.33704796, 0.41960785)
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

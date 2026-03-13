@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://dl2vdwn68qvxq"]
+
+[ext_resource type="Texture2D" uid="uid://xlypxcskf473" path="res://assets/Spooky Shmup/Skybox Castle outside.png" id="1_nnsk1"]
+[ext_resource type="Script" uid="uid://d5b2ddurrb3w" path="res://scenes/background.gd" id="1_rwgxs"]
+[ext_resource type="PackedScene" uid="uid://c3yb2eql5pwpp" path="res://scenes/player.tscn" id="3_4wyf3"]
+[ext_resource type="PackedScene" uid="uid://nixk4qt44hyo" path="res://scenes/witch_enemy.tscn" id="4_k0juu"]
+
+[node name="world" type="Node2D" unique_id=1786074953]
+
+[node name="background" type="Node2D" parent="." unique_id=1605741829]
+script = ExtResource("1_rwgxs")
+
+[node name="TextureRect" type="TextureRect" parent="background" unique_id=1804987327]
+offset_right = 2000.0
+offset_bottom = 240.0
+scale = Vector2(2.7, 2.7)
+texture = ExtResource("1_nnsk1")
+stretch_mode = 1
+
+[node name="player" parent="." unique_id=2023646667 instance=ExtResource("3_4wyf3")]
+position = Vector2(124, 349)
+
+[node name="witch_enemy" parent="." unique_id=864088198 instance=ExtResource("4_k0juu")]
+position = Vector2(936, 222)
+
+[node name="witch_enemy2" parent="." unique_id=1301660947 instance=ExtResource("4_k0juu")]
+position = Vector2(1109, 476)
+
+[node name="witch_enemy3" parent="." unique_id=890957383 instance=ExtResource("4_k0juu")]
+position = Vector2(1282, 312)
