@@ -1,39 +1,55 @@
 [gd_scene format=3 uid="uid://r742wafvvjyb"]
 
-[ext_resource type="Texture2D" uid="uid://wak33ypxgbtf" path="res://assets/Spooky Shmup/enemy ships/enemy_death.png" id="1_17npe"]
+[ext_resource type="Texture2D" uid="uid://c0gvsuc3e4gvt" path="res://assets/Spooky Shmup/enemy ships/explosion-b.png" id="2_aw4cw"]
 [ext_resource type="Script" uid="uid://cao25k75cuxjd" path="res://scenes/explosion.gd" id="2_nfeox"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nfeox"]
-atlas = ExtResource("1_17npe")
-region = Rect2(0, 0, 48, 48)
+atlas = ExtResource("2_aw4cw")
+region = Rect2(80, 0, 80, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_aw4cw"]
-atlas = ExtResource("1_17npe")
-region = Rect2(48, 0, 48, 48)
+atlas = ExtResource("2_aw4cw")
+region = Rect2(160, 0, 80, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3el85"]
-atlas = ExtResource("1_17npe")
-region = Rect2(96, 0, 48, 48)
+atlas = ExtResource("2_aw4cw")
+region = Rect2(240, 0, 80, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hbmxj"]
-atlas = ExtResource("1_17npe")
-region = Rect2(144, 0, 48, 48)
+atlas = ExtResource("2_aw4cw")
+region = Rect2(320, 0, 80, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xfoey"]
-atlas = ExtResource("1_17npe")
-region = Rect2(192, 0, 48, 48)
+atlas = ExtResource("2_aw4cw")
+region = Rect2(400, 0, 80, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v8gpv"]
-atlas = ExtResource("1_17npe")
-region = Rect2(240, 0, 48, 48)
+atlas = ExtResource("2_aw4cw")
+region = Rect2(480, 0, 80, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cun36"]
-atlas = ExtResource("1_17npe")
-region = Rect2(288, 0, 48, 48)
+atlas = ExtResource("2_aw4cw")
+region = Rect2(560, 0, 80, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vk406"]
-atlas = ExtResource("1_17npe")
-region = Rect2(336, 0, 48, 48)
+atlas = ExtResource("2_aw4cw")
+region = Rect2(640, 0, 80, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4jttm"]
+atlas = ExtResource("2_aw4cw")
+region = Rect2(720, 0, 80, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6smmu"]
+atlas = ExtResource("2_aw4cw")
+region = Rect2(800, 0, 80, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l208b"]
+atlas = ExtResource("2_aw4cw")
+region = Rect2(880, 0, 80, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dvsvq"]
+atlas = ExtResource("2_aw4cw")
+region = Rect2(960, 0, 80, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4jttm"]
 animations = [{
@@ -61,16 +77,28 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_vk406")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4jttm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6smmu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l208b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dvsvq")
 }],
 "loop": false,
 "name": &"default",
-"speed": 12.0
+"speed": 8.0
 }]
 
 [node name="explosion" type="AnimatedSprite2D" unique_id=903166244]
-scale = Vector2(3, 3)
+scale = Vector2(2.25, 2.25)
 sprite_frames = SubResource("SpriteFrames_4jttm")
 autoplay = "default"
-frame = 7
+frame = 11
 frame_progress = 1.0
 script = ExtResource("2_nfeox")

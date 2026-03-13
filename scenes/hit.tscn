@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://ckk4qqfxfapyr"]
+
+[ext_resource type="Texture2D" uid="uid://wak33ypxgbtf" path="res://assets/Spooky Shmup/enemy ships/enemy_death.png" id="1_3e6ij"]
+[ext_resource type="Script" uid="uid://dp60xt036tdku" path="res://scenes/hit.gd" id="2_3e6ij"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1xlq3"]
+atlas = ExtResource("1_3e6ij")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6u6db"]
+atlas = ExtResource("1_3e6ij")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1q6yf"]
+atlas = ExtResource("1_3e6ij")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vfjm1"]
+atlas = ExtResource("1_3e6ij")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t05de"]
+atlas = ExtResource("1_3e6ij")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_odbip"]
+atlas = ExtResource("1_3e6ij")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eig36"]
+atlas = ExtResource("1_3e6ij")
+region = Rect2(288, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gam65"]
+atlas = ExtResource("1_3e6ij")
+region = Rect2(336, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8iffw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1xlq3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6u6db")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1q6yf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vfjm1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t05de")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_odbip")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eig36")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gam65")
+}],
+"loop": false,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="hit" type="AnimatedSprite2D" unique_id=1461427708]
+scale = Vector2(0.33, 0.33)
+sprite_frames = SubResource("SpriteFrames_8iffw")
+autoplay = "default"
+frame_progress = 1.0
+script = ExtResource("2_3e6ij")
