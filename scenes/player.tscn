@@ -55,7 +55,7 @@ shape = SubResource("CircleShape2D_g2els")
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_tuyoq")
 autoplay = "default"
-frame_progress = 0.7272915
+frame_progress = 0.20989226
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=531449119]
 

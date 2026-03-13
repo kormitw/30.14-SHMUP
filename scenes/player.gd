@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @export var health = 10
 @export var speed = 500
+const EXPLOSION = preload("res://scenes/explosion.tscn")
 const PROJECTILE = preload("res://scenes/projectile.tscn")
 @onready var progress_bar: ProgressBar = $CanvasLayer/ProgressBar
 @onready var shoot_timer: Timer = $shootTimer
@@ -25,6 +26,15 @@ func _on_shoot_timer_timeout() -> void:
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("enemy"):
-		health -= 1
-		area.explode()
-		progress_bar.value = health
+		if health == 0:
+			explode()
+			queue_free()
+		else:
+			health -= 1
+			progress_bar.value = health
+
+func explode():
+		var explosion = EXPLOSION.instantiate()
+		explosion.global_position = global_position
+		add_sibling(explosion)
+		queue_free()

@@ -1,6 +1,9 @@
 extends Area2D
 const EXPLOSION = preload("res://scenes/explosion.tscn")
 const HIT = preload("res://scenes/hit.tscn")
+const PROJECTILE = preload("res://scenes/witch_projectile.tscn")
+
+@onready var shoot_timer: Timer = $shootTimer
 
 var health = 5
 var speed = 100
@@ -30,3 +33,8 @@ func hit():
 	var hitmark = HIT.instantiate()
 	hitmark.position = Vector2.ZERO
 	add_child(hitmark)
+	
+func _on_shoot_timer_timeout() -> void:
+	var new_projectile = PROJECTILE.instantiate()
+	new_projectile.global_position = global_position
+	add_sibling(new_projectile)

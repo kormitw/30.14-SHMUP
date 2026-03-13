@@ -21,10 +21,31 @@ stretch_mode = 1
 position = Vector2(124, 349)
 
 [node name="witch_enemy" parent="." unique_id=864088198 instance=ExtResource("4_k0juu")]
-position = Vector2(936, 222)
+position = Vector2(702, 435)
 
 [node name="witch_enemy2" parent="." unique_id=1301660947 instance=ExtResource("4_k0juu")]
-position = Vector2(1109, 476)
+position = Vector2(802, 432)
 
 [node name="witch_enemy3" parent="." unique_id=890957383 instance=ExtResource("4_k0juu")]
-position = Vector2(1282, 312)
+position = Vector2(898, 430)
+
+[node name="witch_enemy4" parent="." unique_id=1531823215 instance=ExtResource("4_k0juu")]
+position = Vector2(995, 428)
+
+[node name="witch_enemy5" parent="." unique_id=1690959797 instance=ExtResource("4_k0juu")]
+position = Vector2(1091, 424)
+
+[node name="witch_enemy6" parent="." unique_id=1091294934 instance=ExtResource("4_k0juu")]
+position = Vector2(690, 75)
+
+[node name="witch_enemy7" parent="." unique_id=1655208695 instance=ExtResource("4_k0juu")]
+position = Vector2(787.00006, 75)
+
+[node name="witch_enemy8" parent="." unique_id=736137326 instance=ExtResource("4_k0juu")]
+position = Vector2(887.00006, 77)
+
+[node name="witch_enemy9" parent="." unique_id=1726083389 instance=ExtResource("4_k0juu")]
+position = Vector2(985, 73)
+
+[node name="witch_enemy10" parent="." unique_id=130070039 instance=ExtResource("4_k0juu")]
+position = Vector2(1082, 74)

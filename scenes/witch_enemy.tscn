@@ -39,4 +39,8 @@ shape = SubResource("CapsuleShape2D_0m1xg")
 sprite_frames = SubResource("SpriteFrames_fd14h")
 autoplay = "default"
 
+[node name="shootTimer" type="Timer" parent="." unique_id=904618668]
+autostart = true
+
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="timeout" from="shootTimer" to="." method="_on_shoot_timer_timeout"]

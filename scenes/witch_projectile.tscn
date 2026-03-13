@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://dp6b88ia4q1br"]
+
+[ext_resource type="Texture2D" uid="uid://cyi3fjbhp5wvj" path="res://assets/Spooky Shmup/enemy ships/Enemy Projectiles.png" id="1_hdigh"]
+[ext_resource type="Script" uid="uid://dwojjpwtckl3l" path="res://scenes/witch_projectile.gd" id="1_qtuvc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qtuvc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_duchr"]
+atlas = ExtResource("1_hdigh")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j5h8q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_duchr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="witch_projectile" type="Area2D" unique_id=856853549 groups=["enemy"]]
+script = ExtResource("1_qtuvc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=313392132]
+scale = Vector2(0.85, 0.85)
+shape = SubResource("CircleShape2D_qtuvc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=512246016]
+sprite_frames = SubResource("SpriteFrames_j5h8q")
