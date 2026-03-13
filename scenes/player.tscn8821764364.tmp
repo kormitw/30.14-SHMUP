@@ -32,7 +32,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 12.0
+"speed": 5.0
 }]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dqkch"]
@@ -54,8 +54,6 @@ shape = SubResource("CircleShape2D_g2els")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=240867273]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_tuyoq")
-autoplay = "default"
-frame_progress = 0.7272915
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=531449119]
 
