@@ -1,7 +1,6 @@
 extends Area2D
 
 const EXPLOSION = preload("res://scenes/explosion.tscn")
-const HIT = preload("res://scenes/hit.tscn")
 const PROJECTILE = preload("res://scenes/skull_projectile.tscn")
 
 var health = 3
@@ -25,13 +24,10 @@ func _process(delta: float) -> void:
 
 func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Projectile"):
-		# Destroy projectile and take damage
-		area.queue_free()
+		# Projectile handles its own explosion, just take damage
 		health -= 1
 		if health <= 0:
 			explode()
-		else:
-			hit()
 	elif area.is_in_group("player"):
 		# Deal damage to player on contact
 		var player = area.get_parent()
@@ -40,8 +36,6 @@ func _on_area_entered(area: Area2D) -> void:
 		health -= 1
 		if health <= 0:
 			explode()
-		else:
-			hit()
 
 func explode():
 	# Spawn large explosion then remove from scene
@@ -50,12 +44,6 @@ func explode():
 	explosion.global_position = global_position
 	add_sibling(explosion)
 	queue_free()
-
-func hit():
-	# Spawn hit effect as child at local origin
-	var hitmark = HIT.instantiate()
-	hitmark.position = Vector2.ZERO
-	add_child(hitmark)
 
 func _on_shoot_timer_timeout() -> void:
 	# Fire a projectile from current position

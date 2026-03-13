@@ -1,5 +1,7 @@
 extends Area2D
 
+const EXPLOSION = preload("res://scenes/explosion.tscn")
+
 var speed = 500
 
 func _ready():
@@ -14,6 +16,9 @@ func _process(delta: float) -> void:
 		queue_free()
 
 func _on_area_entered(area: Area2D) -> void:
-	# Remove projectile on contact with enemy
 	if area.is_in_group("enemy"):
+		# Spawn small explosion at impact point then remove projectile
+		var explosion = EXPLOSION.instantiate()
+		explosion.global_position = global_position
+		get_parent().add_child(explosion)
 		queue_free()
