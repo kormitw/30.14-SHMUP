@@ -20,6 +20,7 @@ stretch_mode = 1
 
 [node name="player" parent="." unique_id=2023646667 instance=ExtResource("3_4wyf3")]
 position = Vector2(124, 349)
+slide_on_ceiling = false
 
 [node name="Timer" type="Timer" parent="." unique_id=2042138992]
 wait_time = 2.0
